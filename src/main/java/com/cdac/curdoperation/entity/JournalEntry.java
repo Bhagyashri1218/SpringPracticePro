@@ -9,7 +9,7 @@ import jakarta.persistence.Id;
 
 @Entity
 public class JournalEntry {
-
+ 
 	@Id
 	private String id;
 
