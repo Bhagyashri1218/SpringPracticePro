@@ -8,10 +8,14 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.Id;
 import jakarta.persistence.JoinColumn;
 import jakarta.persistence.OneToMany;
+import lombok.AllArgsConstructor;
 import lombok.Data;
+import lombok.NoArgsConstructor;
 
 @Entity
 @Data
+@AllArgsConstructor
+@NoArgsConstructor
 public class Users {
 
 	@Id
@@ -20,8 +24,8 @@ public class Users {
 	@Column(nullable = false)
 	private String password;
 
-	@OneToMany(cascade = CascadeType.ALL)
-	@JoinColumn(name = "username")
+	@OneToMany(targetEntity = JournalEntry.class, cascade = CascadeType.ALL)
+	@JoinColumn(name = "fk_username", referencedColumnName = "username")
 	private List<JournalEntry> journalEntries;
 
 }

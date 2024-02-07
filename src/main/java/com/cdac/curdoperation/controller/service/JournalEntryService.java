@@ -23,12 +23,12 @@ public class JournalEntryService {
 		return entryRepo.findAll();
 	}
 	
-	public Optional<JournalEntry> getrecordByid(String id) {
+	public Optional<JournalEntry> getrecordByid(Integer id) {
 		return entryRepo.findById(id);
 		
 	}
 	
-	public void deleteById(String id) {
+	public void deleteById(Integer id) {
 		entryRepo.deleteById(id);
 	}
 	

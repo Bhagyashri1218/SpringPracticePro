@@ -35,7 +35,7 @@ public class JournalEntryController2 {
 	}
 
 	@GetMapping("id/{myid}")
-	public ResponseEntity<JournalEntry> getJournalEntryById(@PathVariable String myid) {
+	public ResponseEntity<JournalEntry> getJournalEntryById(@PathVariable Integer myid) {
 		Optional<JournalEntry> optional = entryService.getrecordByid(myid);
 		if (optional.isPresent()) {
 			return new ResponseEntity<>(optional.get(), HttpStatus.OK);
@@ -55,13 +55,13 @@ public class JournalEntryController2 {
 	}
 
 	@DeleteMapping("id/{myid}")
-	public ResponseEntity<?> deleteJournalEntryById(@PathVariable String myid) {
+	public ResponseEntity<?> deleteJournalEntryById(@PathVariable Integer myid) {
 		entryService.deleteById(myid);
 		return new ResponseEntity<JournalEntry>(HttpStatus.NO_CONTENT);
 	}
 
 	@PutMapping("id/{id}")
-	public ResponseEntity<?> updateentry(@PathVariable String id, @RequestBody JournalEntry entry) {
+	public ResponseEntity<?> updateentry(@PathVariable Integer id, @RequestBody JournalEntry entry) {
 		JournalEntry entry2 = entryService.getrecordByid(id).orElse(null);
 		System.err.println("entry " + entry);
 		System.err.println("entry old " + entry2);
