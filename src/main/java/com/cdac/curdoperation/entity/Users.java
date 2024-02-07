@@ -14,6 +14,7 @@ import lombok.Data;
 @Data
 public class Users {
 
+	
 	@Id
 	private String username;
 	
