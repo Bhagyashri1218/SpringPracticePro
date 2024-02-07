@@ -32,11 +32,11 @@ public class UserController {
 	public void cresteUser(@RequestBody Users user) {
 		service.saveEntry(user);
 	}
-	
+
 	@PutMapping("/{username}")
-	public ResponseEntity<?> updateUser(@RequestBody Users user,@PathVariable String username){
+	public ResponseEntity<?> updateUser(@RequestBody Users user, @PathVariable String username) {
 		Users userN = service.getrecordByid(username);
-		if(userN != null) {
+		if (userN != null) {
 			userN.setUsername(user.getUsername());
 			userN.setPassword(user.getPassword());
 			service.saveEntry(userN);
